@@ -1,4 +1,7 @@
-use crate::application::{Application, Options, PlayerCommands, PlayerStatus};
+use crate::{
+    Options, PlayerCommands,
+    application::{Application, PlayerStatus},
+};
 use clap::Parser;
 pub fn run() -> Result<(), Box<dyn std::error::Error>> {
     let mut application = Application::new();

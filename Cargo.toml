@@ -2,6 +2,8 @@
 name = "mctl"
 version = "0.1.0"
 edition = "2024"
+authors = ["Rafael Rebeiz <ralph.r199@gmail.com>"]
+description = "A simple music control tool, with waybar support"
 
 [dependencies]
 mpris = "^2.1.0"
