@@ -44,11 +44,12 @@ Usage: mctl [COMMAND]
 * stop Play next song. alias n
 * json Output metadata information as json. alias j
 * waybar Output waybar compatible status. alias w
-```
+
 
 ## Waybar Support
 ### Example waybar custom module config:
-```
+
+```bash
 {
   "custom/mctl": {
     "exec": "mctl w",
@@ -71,20 +72,16 @@ Usage: mctl [COMMAND]
 ```
 
 ### Example hyperland bindings (.config/hypr/bindings.conf):
-```
-# Play / Pause
+```bash
 bind = , XF86AudioPlay, exec, mctl pause
 bind = $mainMod, P, exec, mctl pause
 
-# Next track
 bind = , XF86AudioNext, exec, mctl next
 bind = $mainMod, period, exec, mctl next
 
-# Previous track
 bind = , XF86AudioPrev, exec, mctl previous
 bind = $mainMod, comma, exec, mctl previous
 
-# Stop playback
 bind = , XF86AudioStop, exec, mctl stop
 bind = $mainMod SHIFT, P, exec, mctl stop
 ```
