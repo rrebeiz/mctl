@@ -74,16 +74,16 @@ Usage: mctl [COMMAND]
 ### Example hyperland bindings (.config/hypr/bindings.conf):
 ```bash
 bind = , XF86AudioPlay, exec, mctl pause
-bind = $mainMod, P, exec, mctl pause
+bind = SUPER ALT, P, exec, mctl pause
 
 bind = , XF86AudioNext, exec, mctl next
-bind = $mainMod, period, exec, mctl next
+bind = SUPER ALT, period, exec, mctl next
 
 bind = , XF86AudioPrev, exec, mctl previous
-bind = $mainMod, comma, exec, mctl previous
+bind = SUPER ALT, comma, exec, mctl previous
 
 bind = , XF86AudioStop, exec, mctl stop
-bind = $mainMod SHIFT, P, exec, mctl stop
+bind = SUPER SHIFT ALT, S, exec, mctl stop
 ```
 
 ### Installing
