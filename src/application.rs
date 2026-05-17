@@ -1,4 +1,3 @@
-use crate::MusicInfo;
 use mpris::PlaybackStatus;
 use mpris::PlayerFinder;
 use serde::Serialize;
@@ -21,6 +20,14 @@ pub struct Response {
     pub class: String,
 }
 
+#[derive(Debug, Serialize)]
+pub struct TrackMetadata {
+    title: String,
+    artist: String,
+    album: String,
+    pub playing: String,
+}
+
 impl Application {
     pub fn new() -> Self {
         Application {
@@ -31,7 +38,7 @@ impl Application {
     pub fn refresh_player(&mut self) {
         self.player = PlayerFinder::new().ok().and_then(|f| f.find_active().ok());
     }
-    pub fn get_metadata(&mut self) -> Result<Option<MusicInfo>, Box<dyn std::error::Error>> {
+    pub fn get_metadata(&mut self) -> Result<Option<TrackMetadata>, Box<dyn std::error::Error>> {
         if let Some(player) = &self.player {
             let metadata = player.get_metadata()?;
 
@@ -50,14 +57,14 @@ impl Application {
             };
 
             let song_info = format!("{} by {}", title, artists);
-            let music_info = MusicInfo {
+            let track_metadata = TrackMetadata {
                 album,
                 title,
                 artist: artists,
                 playing: song_info,
             };
             self.status = PlayerStatus::Playing;
-            Ok(Some(music_info))
+            Ok(Some(track_metadata))
         } else {
             Ok(None)
         }
